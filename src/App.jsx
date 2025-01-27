@@ -42,10 +42,20 @@ function App() {
   const handleUpdate = () => {
     // 국가명이 존재하면
     if (medals.find((medal) => medal.country === country)) {
-      alert("로직 설계 필요");
-      // medal.gold = parseInt(gold);
-      // medal.silver = parseInt(silver);
-      // medal.bronze = parseInt(bronze);
+      // map 사용하여 새로운 배열 반환
+      const newMedal = medals.map((medal) => {
+        if (medal.country === country) {
+          return {
+            country: country,
+            gold: parseInt(gold),
+            silver: parseInt(silver),
+            bronze: parseInt(bronze),
+          };
+        } else {
+          return medal;
+        }
+      });
+      setMedals(newMedal);
       resetForms();
     } else {
       // 국가명이 존재하지 않으면
