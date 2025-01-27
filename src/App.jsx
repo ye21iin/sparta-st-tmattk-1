@@ -9,12 +9,6 @@ function App() {
       silver: 100,
       bronze: 1,
     },
-    {
-      country: "테스트국가2",
-      gold: 100,
-      silver: 100,
-      bronze: 2,
-    },
   ]);
 
   const [country, setCountry] = useState("");
@@ -45,7 +39,30 @@ function App() {
   };
 
   // update func
-  const handleUpdate = () => {};
+  const handleUpdate = () => {
+    // 국가명이 존재하면
+    if (medals.find((medal) => medal.country === country)) {
+      alert("로직 설계 필요");
+      // medal.gold = parseInt(gold);
+      // medal.silver = parseInt(silver);
+      // medal.bronze = parseInt(bronze);
+      resetForms();
+    } else {
+      // 국가명이 존재하지 않으면
+      alert("입력한 국가명이 리스트에 없습니다.");
+    }
+  };
+
+  // delete func
+  const handleDelete = (country) => {
+    const filteredMedals = medals.filter((medal) => {
+      return medal.country !== country;
+    });
+    setMedals(filteredMedals);
+  };
+
+  // sorting
+  medals.sort((a, b) => b.gold - a.gold);
 
   return (
     <>
@@ -107,6 +124,7 @@ function App() {
               <span>🥇{medal.gold}</span>
               <span>🥈{medal.silver}</span>
               <span>🥉{medal.bronze}</span>
+              <button onClick={() => handleDelete(medal.country)}>삭제</button>
             </li>
           );
         })}
