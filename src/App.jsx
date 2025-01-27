@@ -65,56 +65,54 @@ function App() {
   medals.sort((a, b) => b.gold - a.gold);
 
   return (
-    <>
-      <div>
-        <h1>2024 파리 올림픽</h1>
-        <form onSubmit={handleSubmit}>
-          <label>
-            국가명
-            <input
-              type="text"
-              value={country}
-              onChange={(e) => setCountry(e.target.value)}
-              placeholder="국가명을 입력해 주세요."
-              required
-            ></input>
-          </label>
-          <label>
-            금메달
-            <input
-              type="number"
-              value={gold}
-              onChange={(e) => setGold(e.target.value)}
-              min={0}
-              required
-            ></input>
-          </label>
-          <label>
-            은메달
-            <input
-              type="number"
-              value={silver}
-              onChange={(e) => setSilver(e.target.value)}
-              min={0}
-              required
-            ></input>
-          </label>
-          <label>
-            동메달
-            <input
-              type="number"
-              value={bronze}
-              onChange={(e) => setBronze(e.target.value)}
-              min={0}
-              required
-            ></input>
-          </label>
-          <button type="submit">제출</button>
-          <button type="button" onClick={handleUpdate}>
-            업데이트
-          </button>
-        </form>
-      </div>
+    <div>
+      <h1>2024 파리 올림픽</h1>
+      <form onSubmit={handleSubmit}>
+        <label>
+          국가명
+          <input
+            type="text"
+            value={country}
+            onChange={(e) => setCountry(e.target.value)}
+            placeholder="국가명을 입력해 주세요."
+            required
+          ></input>
+        </label>
+        <label>
+          금메달
+          <input
+            type="number"
+            value={gold}
+            onChange={(e) => setGold(e.target.value)}
+            min={0}
+            required
+          ></input>
+        </label>
+        <label>
+          은메달
+          <input
+            type="number"
+            value={silver}
+            onChange={(e) => setSilver(e.target.value)}
+            min={0}
+            required
+          ></input>
+        </label>
+        <label>
+          동메달
+          <input
+            type="number"
+            value={bronze}
+            onChange={(e) => setBronze(e.target.value)}
+            min={0}
+            required
+          ></input>
+        </label>
+        <button type="submit">제출</button>
+        <button type="button" onClick={handleUpdate}>
+          업데이트
+        </button>
+      </form>
       {/* List 뿌리기 */}
       <ul>
         {medals.map((medal) => {
@@ -129,7 +127,7 @@ function App() {
           );
         })}
       </ul>
-    </>
+    </div>
   );
 }
 
